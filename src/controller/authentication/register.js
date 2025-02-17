@@ -1,14 +1,15 @@
 import axios from 'axios';
 
-export const handleLogin = async (userLogin, password) => {
-    const response = await axios.post('/api/v1/authentication/login', {
-        username: userLogin,
+export const handleRegister = async (username, useremail, password) => {
+    console.log("username", username)
+    const response = await axios.post('/api/v1/authentication/register', {
+        username: username,
+        email: useremail,
         password: password
     })
     const { token } = response.data.token;
     localStorage.setItem('token', token);
     localStorage.setItem('username', response.data.user).username;
-    console.log("response", response)
     return response.data.status
 
 }
