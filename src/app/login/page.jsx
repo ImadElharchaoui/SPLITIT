@@ -12,14 +12,14 @@ const Page = () => {
 
     useEffect(() => {
         const userExists = () => {
-            if (localStorage.getItem("username")) {
-                router.push("/");
+            if (localStorage.getItem("user")) {
+                router.push("/dashboard");
             }
         };
         userExists();
     }, [router]);
 
-    // ✅ Moved inside the component
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -38,7 +38,7 @@ const Page = () => {
                 alert("An error occurred while logging in!");
             } else {
                 alert("Login successful!");
-                router.push("/"); 
+                router.push("/dashboard"); 
             }
         } catch (error) {
             console.error("Login error:", error);

@@ -12,8 +12,8 @@ const Page = () => {
 
     useEffect(() => {
         const userExists = () => {
-            if (localStorage.getItem("username")) {
-                router.push("/");
+            if (localStorage.getItem("user")) {
+                router.push("/dashboard");
             }
         };
         userExists();
@@ -38,7 +38,7 @@ const Page = () => {
                 alert("An error occurred while registering!");
             } else {
                 alert("Registration successful!");
-                router.push("/"); 
+                router.push("/dashboard"); 
             }
         } catch (error) {
             console.error("Registration error:", error);

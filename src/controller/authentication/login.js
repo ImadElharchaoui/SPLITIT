@@ -6,9 +6,8 @@ export const handleLogin = async (userLogin, password) => {
         password: password
     })
     const { token } = response.data.token;
-    localStorage.setItem('token', token);
-    localStorage.setItem('username', response.data.user).username;
-    console.log("response", response)
-    return response.data.status
+    localStorage.setItem('token', JSON.stringify(token));
+    localStorage.setItem('user', JSON.stringify(response.data.user));
+    return response.status;
 
 }

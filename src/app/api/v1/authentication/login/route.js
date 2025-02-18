@@ -28,7 +28,7 @@ export async function POST(req) {
         const token = jwt.sign({ username: user.username }, JWT_SECRET, { expiresIn: "1h" });
 
         // Return user info (without password) and token
-        return NextResponse.json({ username: user.username, email: user.email, token }, { status: 200 });
+        return NextResponse.json({ user, token }, { status: 200 });
     } catch (error) {
         console.error("Login Error:", error);
         return NextResponse.json({ message: "Internal Server Error" }, { status: 500 });

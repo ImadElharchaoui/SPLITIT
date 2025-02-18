@@ -24,9 +24,9 @@ export const POST = async (req) => {
     });
     try {
         await user.save();
-        const ReturnUser = { username: user.username, email: user.email };
+        
         const token = jwt.sign({ username }, JWT_SECRET, { expiresIn: '1h' });
-        return NextResponse.json({ ReturnUser, token }, { status: 201 });
+        return NextResponse.json({ user, token }, { status: 201 });
     } catch (error) {
         console.log("Error", error);
         return NextResponse.json({ message: "Internal Server Error" }, { status: 500 });
